@@ -1,0 +1,171 @@
+
+
+
+.action-item{
+    margin-left: .8em;
+    cursor: pointer;
+    font-size: 20px;
+    height: 30px;
+    width: 30px;
+}
+
+.matty{
+    text-align: center;
+    position: center;
+    width: 1200px;
+    padding:5px;
+    margin:10px;
+    margin-bottom:20px;
+    background-color: #ffffe9;
+    box-shadow: 0 0 20px rgba(0, 0.2, 0, 0.2);
+    padding-bottom: 10px;
+}
+
+.mattitle{
+    font-weight: bold;
+    font-family: 'Times New Roman', Times, serif;
+    margin-top:10px;
+}
+
+.likeDescp{
+    margin-right: 30px;
+    margin-top: 10px;
+    /* font-size: 15px; */
+    color:  #4b4b5e ;
+}
+
+.commentDescp{
+    margin-top: 10px;
+    color:  #4b4b5e ;
+    cursor: pointer;
+}
+
+.numberOf{
+    color: gray;
+}
+
+.main-div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* webkit-box-shadow: 0 0 10px #fff; */
+}
+
+.matheader{
+    width: 25vw;
+}
+
+.postdescription{
+    margin: 10px;
+    margin-bottom: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.matactions{
+    margin-top: 5px;
+    justify-content: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: row;
+}
+
+.cardcontent{
+    margin-bottom: 20px;
+}
+
+
+
+.headc{
+    margin-left: 20px;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-style: initial;
+    font-size: 22px;
+    font-weight: 700;
+}
+
+.dropdown{
+    text-align: left;
+}
+
+input{
+    margin-left: 20px;
+    border-radius: 5px;
+    border: solid 1px gray;
+    width:80%;
+    height:40px;
+    background-color: #ededf0;
+}
+
+.maticon{
+    height: 40px;
+    margin-left: 3px;
+    margin-right: 10px;
+    width:70px;
+    border: solid 1px gray;
+    color: #5e5ede;
+    margin-bottom: 2px;
+    background-color: #bcbcef;
+    padding-top: 5px;
+}
+
+
+.liked{
+    color: tomato;
+}
+
+.lineContainer{
+    display: flex;
+    justify-content: space-between;
+    align-items: left;
+}
+
+.top-right-menu{
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin-top: 5px;
+}
+
+.menu-container{
+    display: grid;
+    place-items: center;
+}
+
+.group-menu{
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.dot{
+    width:4px;
+    height: 4px;
+    border-radius: 50%;
+    margin-top: 3px;
+    background-color: black;
+}
+
+.style{
+    width:200px;
+    height: 73px;
+    background-color: black;
+    margin-top: 5px;
+    margin-left: -180px;
+    border-radius: 10px;
+}
+
+.frame1 .info{
+    color:white;
+    border-bottom: 1px solid white;
+    padding-top: 3px;
+    cursor: pointer;
+    padding-bottom: 2px;
+}
+
+.frame1 .info:hover{
+    background-color: #363333;
+}
+
+.action-item-in-menu{
+    font-size: 20px;
+}

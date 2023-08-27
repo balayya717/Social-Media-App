@@ -1,0 +1,28 @@
+<p class="commenthead">Comments : {{noOfComments}}</p>
+
+<div id="reply-box">
+    <div *ngFor="let comment of comments">
+        <p class="comment-name">{{getUserName(comment.id)}}</p>
+        <div>
+            <p [ngClass]="{'comment' : true}" style="display: flex; align-items: center;">
+                <span style="display: inline-block;">
+                    {{comment.content}} 
+                </span>
+                &nbsp;
+                <mat-dialog-actions align="end" style="display: inline-block;" class="maticonactions">
+                    <mat-icon (click)="onClickDeleteComment(comment.id,comment.post_id)"
+                    class="maticonsize">delete</mat-icon>
+                    &nbsp;
+                    <mat-icon (click)="onClickCommentLike(comment.id)" [ngClass]="{ 'liked' : commentLiked(comment.id)} "
+                    class="maticonsize" >favorite</mat-icon>
+                </mat-dialog-actions>
+            </p>
+        </div>
+    </div>
+</div>
+<div id="reply-action-bar">
+    
+    <button (click)="onClickComment(comment)"
+    mat-flat-button color="warn" class="maticon"><mat-icon>send</mat-icon></button>
+    <input placeholder="Comment....." #comment>
+</div>

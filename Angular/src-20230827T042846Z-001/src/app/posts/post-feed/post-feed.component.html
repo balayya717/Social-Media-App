@@ -1,0 +1,166 @@
+
+
+<mat-toolbar id="matToolBar">
+    <mat-toolbar-row id="navBarContent">
+        <div id="navBarLeft">
+            <mat-icon class="homeIcon">home</mat-icon>
+            &nbsp;&nbsp;&nbsp;
+            <h1 id="head">Maze</h1>
+        </div>        
+        <div id="navBarRight" (click)="clickedUserInfo()">
+            <mat-icon id="matIcon">account_circle</mat-icon>
+            &nbsp; 
+            <p id="nameOfUser">{{user_name}}</p>
+        </div>        
+    </mat-toolbar-row>
+</mat-toolbar>
+
+<mat-sidenav-container autosize >
+    <mat-sidenav opened="true" mode="side" id="matSIdeNavContainer">
+        <mat-nav-list>
+            <a mat-list-item (click)="clickedPostFeed()" [ngClass]="{ 'bgColour' : isPostFeed}"> <mat-icon>dashboard</mat-icon>Post Feed</a>
+            <a mat-list-item (click)="clickedUserInfo()" [ngClass]="{ 'bgColour' : isUserInfo}"> <mat-icon>account_box</mat-icon>Profile</a>
+            <div *ngIf="isAdmin">
+                <a mat-list-item (click)="getUsers()" [ngClass]="{ 'bgColour' : isManagebg}"><mat-icon>supervisor_account</mat-icon>Manage Users</a>
+                <a mat-list-item (click)="getReports()" [ngClass]="{ 'bgColour' : isReportsBg}"><mat-icon>assignment</mat-icon>Reports</a>
+            </div>
+            <a mat-list-item (click)="onClickedLogout()"><mat-icon>assignment_return</mat-icon>Logout</a>
+        </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content id="matSideNavContent">
+        <div *ngIf="isPostFeed" class="postContent">
+            <app-post></app-post>
+            <button (click)="onCreatePost()"
+                mat-fab color="warn" id="post-button">
+                +
+            </button>
+        </div>
+
+        <div *ngIf="isUserInfo" class="userInfo">
+            <div class="user-details-container">
+                <div class="user-details">
+                  <h2>User Details</h2>
+                  <div class="user-field">
+                    <label>Name:</label>
+                    <span>{{ userName }}</span>
+                  </div>
+                  <div class="user-field">
+                    <label>Email:</label>
+                    <span>{{ eMail }}</span>
+                  </div>
+                  <div class="user-field">
+                    <label>Phone Number:</label>
+                    <span>{{ phoneNumber }}</span>
+                  </div>
+                </div>
+            </div>              
+        </div>
+
+        <div *ngIf="isAdminCreateUSer" class="createUserByAdmin">
+            <h1 class="inputHead">Add User</h1>
+            <div class="grupInput">
+                <input class="inputName" type="text" placeholder="User name" #name> &nbsp;
+                <input class="inputName" type="text" placeholder="Email" #email> &nbsp;
+                <input class="inputName" type="text" placeholder="phoneNumber" #number> &nbsp;
+                <button class="btn btn-primary" 
+                (click)="onClickedCreateByAdmin(name,email,number)">Create User</button>
+            </div>
+        </div>
+
+        <div *ngIf="isAdmin && isManagebg" class="manageUsers">
+            <h1 class="lofManage">List of Users</h1>
+            <div class="top-right-menu">
+                <div>
+                    <button class="btn btn-primary addUserButton"
+                    (click)="onAdduserByAdmin()">Add User</button>
+                    &nbsp; 
+                </div>
+                <div class="grupFile">
+                    <button class="btn btn-success" (click)="onUpload()" [disabled]="!selectedFile">Upload File</button>&nbsp;&nbsp;
+                    <input class="inputFile" type="file" (change)="onFileSelected($event)">
+                </div>
+                
+            </div>
+            <br><br>
+            
+
+            <div class="user-listy">
+                <div class="user-rowy" *ngFor="let user of allUsers">
+                  <div class="user-detailsy">
+                    <mat-icon class="rowyIcon">assignment_ind</mat-icon> &nbsp;
+                    <div class="listyEach"><p class="user-namey">{{ user.name }}</p></div>
+                    <div class="listyEach"><p class="user-emaily">{{ user.email }}</p></div>
+                    <div class="listyEach"><p class="user-phoney">{{ user.phone_number }}</p></div>  
+                  </div>
+                  <button [ngClass]="{ 'activated' : isUserActivated(user.id)}"
+                          class="deactivated" (click)="onClickStatus(user.id)">{{textOfStatus}}</button>
+                </div>
+            </div>
+        </div>
+
+
+        <div *ngIf="isAdmin && isReportsBg">
+
+            <div class="card-container d-flex overflow-auto">
+                <div class="card mx-2">
+                    <div class="card-body">
+                        <mat-icon class="cardIcon">assignment</mat-icon>
+                        <h3 class="cardHead">All Users</h3>
+                        <p class="cardPara">Details of all users</p>
+                        <mat-radio-group [(ngModel)]="userDetailsDownloadOption">
+                            <mat-radio-button value="xlsx">.xlsx</mat-radio-button>
+                            <mat-radio-button value="csv">.csv</mat-radio-button>
+                        </mat-radio-group><br>
+                        <button class="cardButton" (click)="onClickUserDetails()">Download</button>
+                    </div>
+                </div>
+                <div class="card mx-2">
+                    <div class="card-body">
+                        <mat-icon class="cardIcon">assignment</mat-icon>
+                        <h3 class="cardHead">All users</h3>
+                        <p class="cardPara">with posts, comments, likes count</p>
+                        <mat-radio-group [(ngModel)]="allDownloadedOption">
+                            <mat-radio-button value="xlsx">.xlsx</mat-radio-button>
+                            <mat-radio-button value="csv">.csv</mat-radio-button>
+                        </mat-radio-group> <br>
+                        <button class="cardButton" (click)="onClickDownloadAll()">Download</button>
+                    </div>
+                </div>
+                <div class="card mx-2">
+                    <div class="card-body">
+                        <mat-icon class="cardIcon">assignment</mat-icon>
+                        <h3 class="cardHead">All users</h3>
+                        <p class="cardPara">who have more than 10 posts</p>
+                        <mat-radio-group [(ngModel)]="specifiedDownloadedOption">
+                            <mat-radio-button value="xlsx">.xlsx</mat-radio-button>
+                            <mat-radio-button value="csv">.csv</mat-radio-button>
+                        </mat-radio-group> <br>
+                        <button class="cardButton" (click)="onClickDownloadSpecified()">Download</button>
+                    </div>
+                </div>
+                <div class="card mx-2">
+                    <div class="card-body">
+                        <mat-icon class="cardIcon">assignment</mat-icon>
+                        <h3 class="cardHead">All Posts</h3>
+                        <p class="cardPara">with comments and likes count</p>
+                        <mat-radio-group [(ngModel)]="postsOption">
+                            <mat-radio-button value="xlsx">.xlsx</mat-radio-button>
+                            <mat-radio-button value="csv">.csv</mat-radio-button>
+                        </mat-radio-group> <br>
+                        <button class="cardButton" (click)="onClickDownloadPosts()">Download</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+            
+    </mat-sidenav-content>
+
+</mat-sidenav-container>
+
+
+
+
+
+
+

@@ -1,0 +1,32 @@
+#cpbutton{
+    font-family: 'Times New Roman', Times, serif;
+}
+
+#matcard{
+    padding:25px;
+    background-color: antiquewhite;
+    padding-bottom: 10px;
+}
+
+#headrr{
+    text-align: left;
+}
+
+#cpost{
+    margin-bottom: 15px;
+    color:chocolate;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    font-style: italic;
+}
+
+textarea{
+    height: 100px;
+    width:300px;
+    margin-bottom: 10px;
+}
+
+input{
+    width:300px;
+}

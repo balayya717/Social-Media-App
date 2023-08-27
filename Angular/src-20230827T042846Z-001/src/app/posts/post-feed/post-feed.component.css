@@ -1,0 +1,302 @@
+#post-button{
+    position: fixed;
+    bottom:2em;
+    right:2em;
+    border-radius: 50%;
+    font-size: 30px;
+    background-color: #6b6bc8;
+    border: 2px solid black;
+}
+
+.homeIcon{
+    font-size: 40px;
+    height: 40px;
+    width: 40px;
+    color:   #5e5ede ;
+}
+
+#navBarContent{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+#navBarLeft{
+    display:flex;
+    align-items:center;
+    height: 100%;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+
+#navBarRight{
+    display:flex;
+    align-items:center;
+    height: 100%;
+    padding: 0 2em;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    justify-content: flex-end;
+}
+
+#matSideNavContent{
+    background-color:white;
+    height: 90vh;
+    padding-bottom: 40px;
+}
+
+#matSIdeNavContainer{
+    background-color:  #dedee3 ;
+    margin-left: 5px;
+    margin-right: 5px;
+    padding-right: 7px;
+    width:200px;
+}
+
+#matToolBar{
+    background-color:  #bcbcef ;
+    height: 6vh;
+    position: relative;
+    border-bottom: solid 1px gray;
+}
+
+.inputFile{
+    /* width:30px; */
+    height: 10xp;
+
+}
+
+#nameOfUser{
+    margin-top: 15px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+#head{
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 30px;
+    margin-top: 10px;
+}
+
+#matIcon{
+    font-size: 40px;
+    cursor: pointer;
+    color:   #5e5ede ;
+    height: 40px;
+    width: 40px;
+}
+
+.bgColour{
+    background-color:  #a6a6f1 ;
+    border-radius: 10%;
+}
+
+#rightNav{
+    height: 88vh;
+}
+
+.deactivated{
+    color:red;
+}
+
+.activated{
+    color: green;
+}
+
+.userInfo{
+    text-align: center;
+    position: relative;
+    background-color: #ededf0;
+    height: 90vh;
+}
+
+.user-details-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 80vh;
+    text-align: center;
+}
+
+.user-details {
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 400px;
+    background-color: white;
+}
+
+.user-field {
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+    margin-top: 30px;
+}
+
+label {
+    flex: 0 0 120px;
+    font-weight: bold;
+}
+
+span {
+    flex: 1;
+}
+  
+  
+
+.card-container{
+    text-align: center;
+    justify-content: center;
+    padding-top: 100px;
+    /* background-color:   #dedee3; */
+}
+.card{
+    width:250px;
+    text-align: center;
+    margin-right: 100px;
+    padding-bottom: 30px;
+    padding-top: 10px;
+    background-color:  #e9e9f7;
+    border: 2px solid gray;
+    margin-right: 30px;
+    margin: 80px;
+}
+
+.cardIcon{
+    color: #6b6bc8;
+    font-size: 50px;
+    width: 50px;
+    height: 50px;
+    margin-bottom: 30px;
+}
+.cardButton{
+    margin-top: 30px;
+    background-color: #6b6bc8;
+    color: white;
+    width:200px;
+    height: 40px;
+    border: 2px solid gray;
+}
+.cardPara{
+    font-size: 14px;
+    color: gray;
+}
+
+.cardHead{
+    font-size: 30px;
+    font-family:serif;
+    font-weight: 500;
+}
+
+.user-listy {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .user-rowy {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 90%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    background-color: #e9e9f7;
+  }
+  
+  .user-detailsy {
+    display: flex;
+    flex-direction: row;
+    flex-grow: 1;
+  }
+  
+  .user-namey,
+  .user-emaily,
+  .user-phoney {
+    margin: 0;
+    white-space: nowrap; 
+    overflow: hidden;
+    text-overflow: ellipsis; 
+  }
+  
+.listyEach{
+    width: 20vw;
+}
+  
+  
+.rowyIcon{
+    margin-right: 20px;
+}
+
+.top-right-menu{
+    position:absolute;
+    top: 0;
+    right: 0;
+    margin-top: 20px;
+    margin-right: 50px;
+    display: flex;
+    flex-direction: row;
+}
+
+.manageUsers{
+    background-color:  #ededf0;
+    padding: 20px;
+    height: 90vh;
+    width: 88vw;
+}
+  
+.lofManage{
+    margin-left: 80px;
+}
+
+.grupFile{
+    padding: 5px;
+    background-color: white;
+    display: flex;
+    flex-direction: row;
+    width: 400px;
+}
+
+.addUserButton{
+    width: 200px;
+    height: 50px;
+}
+  
+  
+.createUserByAdmin{
+    padding: 10px;
+    background-color: #e9e9f7;
+    height: 90vh;
+    
+}
+
+.inputName{
+    height:50px;
+    width:250px;
+    padding: 10px;
+}
+
+.inputHead{
+    margin-left: 30px;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    font-size: 40px;
+    font-family: sans-serif;
+}
+
+.grupInput{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.postContent{
+    background-color:  #ededf0 ;
+    padding-top: 30px;
+}

@@ -1,0 +1,56 @@
+<div *ngFor="let post of posts | search:searchtext" class="main-div" >
+    <mat-card class="matty">
+        <mat-card-header class="matheader">
+            <div class="lineContainer">
+                <mat-card-title>{{post_name(post.id)}}</mat-card-title>&nbsp;
+                <mat-icon>perm_identity</mat-icon>
+                <div *ngIf="getCreator(post.user_id) || isAdmin" class="top-right-menu">
+                    <div class="menu-container">
+                        <div class="group-menu" (click)="onClickGroupMenu(post.id)">
+                            <div class="dot"></div>
+                            <div class="dot"></div>
+                            <div class="dot"></div>
+                        </div>
+                        <div *ngIf="isClickedOptions(post.id)">
+                            <div class="frame1" id="frame1" [ngClass]="{'style' : isClickedOptions(post.id)}">
+                                <div *ngIf="isClickedOptions(post.id)" class="info" (click)="onUpdateClick(post.title,post.description,post.id)">
+                                    <mat-icon class="action-item-in-menu">create</mat-icon> &nbsp;
+                                    <span>Update</span>
+                                </div>
+                                <div *ngIf="isClickedOptions(post.id)" class="info" (click)="onClickDelete(post.id)">
+                                    <mat-icon class="action-item-in-menu">delete</mat-icon> &nbsp;
+                                    <span>Delete</span>
+                                </div>
+                            </div>
+                        </div>    
+                    </div>
+                </div>
+            </div>
+        </mat-card-header>
+
+        <mat-card-content class="cardcontent">
+            <h3 class="mattitle">{{post.title}}</h3>
+            <div class="postdescription">{{post.description}}</div>
+            <p class="numberOf">{{getLikeCount(post.id)}} Likes &nbsp; • &nbsp; {{getCommentCount(post.id)}} Comments</p>
+        </mat-card-content>
+        
+        <mat-dialog-actions class="matactions" align="start"> 
+            <mat-icon (click)="onClickLike(post.id)" [ngClass]="{ 'liked' : postLiked(post.id)} "
+            class="action-item" >favorite</mat-icon>
+            <p class="likeDescp">Like</p> 
+            <mat-icon (click)="onClickedComment(post.id)"
+            class="action-item" color="warn">comment</mat-icon>
+            <p class="commentDescp" (click)="onClickedComment(post.id)">Comments</p>
+        </mat-dialog-actions>
+
+
+        <div class="dropdown">
+            <!-- <p class="headc">Comments:</p> -->
+            <input type="text" placeholder=" Write a comment" #comment >&nbsp;
+            <button (click)="onClickCurrentComment(post.id,comment)" 
+            class="maticon"><mat-icon>send</mat-icon></button>
+            
+        </div>
+    </mat-card>
+</div>
+

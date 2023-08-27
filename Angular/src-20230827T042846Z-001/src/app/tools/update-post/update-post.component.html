@@ -1,0 +1,20 @@
+<mat-card id="matcard">
+    <mat-card-header id="headrr">
+        <mat-card-title id="cpost">Update Post</mat-card-title>
+    </mat-card-header>
+    <div>
+        <input type="text" #post_title placeholder="Title" required value={{jsondata.title}}>
+        <br> <br>
+
+        <textarea rows="4" #post_description placeholder="Post Description...." value={{jsondata.description}}></textarea>
+        <br>
+        <mat-radio-group [(ngModel)]="selectedOption">
+            <mat-radio-button value="private">Private</mat-radio-button>
+            <mat-radio-button value="public">Public</mat-radio-button>
+        </mat-radio-group>
+    </div>
+    <mat-card-actions align="end">
+        <button (click)="onUpdatePost(post_title,post_description)"
+        id="cpbutton" >Update Post</button>
+    </mat-card-actions>
+</mat-card>
